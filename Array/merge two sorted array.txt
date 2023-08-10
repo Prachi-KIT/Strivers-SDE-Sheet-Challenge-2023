@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
+	vector<int> newArr;
+	int i=0,j=0;
+    while (i<m && j <n)
+    {
+       
+        if (arr1[i] < arr2[j])
+            newArr.push_back(arr1[i++]);
+        else
+            newArr.push_back(arr2[j++]);
+    }
+ 
+    // Store remaining elements of first array
+    while (i < m)
+       newArr.push_back(arr1[i++]);
+ 
+    // Store remaining elements of second array
+    while (j < n)
+        newArr.push_back(arr2[j++]);
+
+	return newArr;
+}

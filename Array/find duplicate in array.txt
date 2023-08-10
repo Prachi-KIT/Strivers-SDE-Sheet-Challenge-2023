@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+int findDuplicate(vector<int> &arr, int n){
+	int slowpointer=arr[0];
+	int fastpointer=arr[0];
+
+	do{
+         slowpointer=arr[slowpointer];
+		 fastpointer=arr[arr[fastpointer]];
+	}
+	while(slowpointer!=fastpointer);
+
+	fastpointer=arr[0];
+
+	while(slowpointer!=fastpointer)
+	{
+       slowpointer	= arr[slowpointer];
+	   fastpointer= arr[fastpointer];
+	}
+
+	return slowpointer;
+}
